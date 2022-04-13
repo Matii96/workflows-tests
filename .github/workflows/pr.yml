@@ -1,0 +1,38 @@
+name: Pull request
+
+concurrency:
+  group: pr-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches:
+      - master
+
+jobs:
+  install-dependencies:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install node_modules
+        run: echo Installed
+
+  unit-tests:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Load node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ./node_modules
+          key: package-lock-${{ hashFiles('**/package-lock.json') }}
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+      - name: Run unit tests
+        run: echo Test
+    needs: install-dependencies

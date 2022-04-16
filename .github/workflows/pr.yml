@@ -10,6 +10,6 @@ on:
 
 jobs:
   reusable_workflow_job:
-    uses: ./.github/workflows/my-action
+    uses: .github/workflows/pr-base
     with:
       username: test-user

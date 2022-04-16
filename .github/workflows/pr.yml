@@ -1,0 +1,13 @@
+name: Pull request
+
+concurrency:
+  group: pr-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  reusable_workflow_job:
+    uses: ./.github/workflows/pr-base.yml

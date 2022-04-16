@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
+      - uses: actions/checkout@v2
       - uses: ./.github/workflows/my-action
         with:
           username: test-user

@@ -11,5 +11,3 @@ on:
 jobs:
   reusable_workflow_job:
     uses: ./.github/workflows/pr-base.yml
-    with:
-      username: test-user

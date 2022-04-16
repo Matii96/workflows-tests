@@ -1,11 +1,6 @@
 name: Pull request standard
 
-on:
-  workflow_call:
-    inputs:
-      username:
-        required: true
-        type: string
+on: workflow_call
 
 jobs:
   install-dependencies:

@@ -11,5 +11,5 @@ on:
 jobs:
   reusable_workflow_job:
     uses: ./.github/workflows/my-action
-        with:
-          username: test-user
+      with:
+        username: test-user
